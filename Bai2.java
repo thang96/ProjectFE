@@ -1,8 +1,8 @@
-package Buoi3;
+
 
 import java.util.Scanner;
 
-public class bai2 {
+public class Bai2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a;
