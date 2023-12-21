@@ -1,4 +1,4 @@
-package DemUoc;
+package CauTrucDieuKhien.DemUoc;
 
 import java.util.Scanner;
 

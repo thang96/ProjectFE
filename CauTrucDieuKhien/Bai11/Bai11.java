@@ -1,4 +1,4 @@
-package Bai11;
+package CauTrucDieuKhien.Bai11;
 
 import java.util.Scanner;
 

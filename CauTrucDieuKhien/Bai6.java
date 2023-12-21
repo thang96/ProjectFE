@@ -1,6 +1,7 @@
+package CauTrucDieuKhien;
 import java.util.Scanner;
 
-public class Bai8 {
+public class Bai6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập điểm bài kiểm tra: ");
@@ -9,15 +10,11 @@ public class Bai8 {
         double diemThiGiuaKy = scanner.nextDouble();
         System.out.print("Nhập điểm thi cuối kỳ: ");
         double diemThiCuoiKy = scanner.nextDouble();
-        double diemTrungBinh = tinhDiemTrungBinh(diemBaiKT, diemThiGiuaKy, diemThiCuoiKy);
+        double diemTrungBinh = (diemBaiKT + diemThiGiuaKy + diemThiCuoiKy) / 3;
         String xepHang = xepHangHocLuc(diemTrungBinh);
         System.out.println("Điểm trung bình: " + diemTrungBinh);
         System.out.println("Xếp hạng học lực: " + xepHang);
         scanner.close();
-    }
-
-    public static double tinhDiemTrungBinh(double diemBaiKT, double diemThiGiuaKy, double diemThiCuoiKy) {
-        return (diemBaiKT + diemThiGiuaKy + diemThiCuoiKy) / 3;
     }
 
     public static String xepHangHocLuc(double diemTrungBinh) {

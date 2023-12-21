@@ -1,3 +1,4 @@
+package CauTrucDieuKhien;
 import java.util.Scanner;
 
 public class Bai9 {

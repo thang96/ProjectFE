@@ -1,4 +1,4 @@
-package SoNghichDao;
+package CauTrucDieuKhien.SoNghichDao;
 
 import java.util.Scanner;
 

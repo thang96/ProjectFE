@@ -1,3 +1,4 @@
+package OnTapVongLap;
 import java.util.Scanner;
 
 public class SoHoanHao {
