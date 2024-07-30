@@ -9,3 +9,15 @@ Câu hỏi 7:  a) Chia nhỏ bộ nhớ thành các đoạn nhỏ hơn
 Câu hỏi 8:  b) Thay đổi quyền truy cập của tệp
 Câu hỏi 9:  a) Quản lý các ứng dụng đang chạy
 Câu hỏi 10: a) Windows
+Câu hỏi mới :
+Q1  : 16 milliseconds
+Q2  : 11 nano giây
+Q3  : b) Ngắt định thời (Timer)
+Q4  : d) By performing data transmission between a main memory unit and a low-speed I/O device via an auxiliary storage device, the throughput of the entire system is improved.
+Q5  : b) Ready state refers to a state in which a process is waiting for CPU allocation. Generally, there are multiple processes in the ready state, and they are formed into a queue.
+Q6  : c) Although the total available memory is sufficient, the required memory area cannot be acquired in some cases, because of fragmentation.
+Q7  : b) The usage of actual memory areas is efficient, and area management is also simple.
+Q8  : d) They predict which page will not be referenced in the farthest future after that point in time.
+Q9  : a) Partitioned organization file
+Q10 : c) In order to specify a certain file in a file system, a path that goes through directories is specified.
+Q11 : c) A backup can be effective for restoring files that are lost due to a hardware fault or a human error.
