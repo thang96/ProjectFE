@@ -93,29 +93,126 @@ public class Solution {
         }
         return result;
     }
-    
-    public static void main(String[] args) {
-        testRun();
-    }
-    private static void testRun() {
-        int[][] matrix = {
-            // {1, 3}, 
-            {1, 2, 3, 0}, 
-            {4, 5, 6, 9}, 
-            {7, 2, 5, 5}
-        };
-        int target = 3;
-    }
 
     public boolean searchMatrix(int[][] matrix, int target) {
-        for(int i = 0; i<matrix.length;i++){
-            for(int j = 0; j<matrix[i].length;j++){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 int num = matrix[i][j];
-                if (num==target) {
+                if (num == target) {
                     return true;
                 }
             }
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        chayThu();
+    }
+
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder result = new StringBuilder();
+        int w1 = 0;
+        int w2 = 0;
+
+        int length = word1.length() <= word2.length() ? word1.length() : word2.length();
+
+        for (int i = 0; i < length; i++) {
+            result.append(word1.charAt(i));
+            result.append(word2.charAt(i));
+            w1++;
+            w2++;
+        }
+        while (w1 < word1.length()) {
+            result.append(word1.charAt(w1++));
+        }
+        while (w2 < word2.length()) {
+            result.append(word2.charAt(w2++));
+        }
+
+        return result.toString();
+    }
+
+    public static String gcdOfStrings(String str1, String str2) {
+        StringBuilder result = new StringBuilder();
+        int length = str1.length() <= str2.length() ? str1.length() : str2.length();
+        for (int i = 0; i < length; i++) {
+            if (str1.charAt(i) == str2.charAt(i)) {
+                result.append(str1.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+
+    public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> listResult = new ArrayList<Boolean>();
+        int max = findMax(candies);
+        for (int i = 0; i < candies.length; i++) {
+            if (max > candies[i] + extraCandies) {
+                listResult.add(false);
+            } else {
+                listResult.add(true);
+            }
+        }
+        return listResult;
+    }
+
+    private static int findMax(int[] candies) {
+        int max = 0;
+        for (int i = 0; i < candies.length; i++) {
+            if (max < candies[i]) {
+                max = candies[i];
+            }
+        }
+        return max;
+    }
+
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int count = 0;
+        for (int i = 0; i < flowerbed.length; i++) {
+            if (flowerbed[i] == 0 && (i == 0 || flowerbed[i - 1] == 0)
+                    && (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
+                count++;
+                flowerbed[i] = 1;
+            }
+
+        }
+        return count >= n ? true : false;
+    }
+
+    private static void chayThu() {
+        reverseWords("a good   example");
+        System.out.println(reverseWords("a good   example"));
+    }
+
+    public static String reverseWords(String s) {
+        String result = "";
+        String work = "";
+        List<String> works = new ArrayList<String>();
+        int i = 0;
+
+        while (s.length() > i) {
+            if (s.charAt(i) == ' ' && (i == s.length() - 1 || s.charAt(i + 1) == ' ')) {
+                i++;
+                continue;
+            } else if (s.charAt(i) != ' ') {
+                work += s.charAt(i);
+                i++;
+            } else {
+                works.add(work);
+                work = "";
+                i++;
+            }
+
+        }
+        if (!work.isEmpty()) {
+            works.add(work);
+        }
+        for (int j = works.size() - 1; j >= 0; j--) {
+            result += works.get(j) + " ";
+        }
+
+        return result.trim();
+    }
+
 }
