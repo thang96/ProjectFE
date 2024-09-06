@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 public class Solution {
     public class TreeNode {
@@ -180,11 +181,6 @@ public class Solution {
         return count >= n ? true : false;
     }
 
-    private static void chayThu() {
-        reverseWords("a good   example");
-        System.out.println(reverseWords("a good   example"));
-    }
-
     public static String reverseWords(String s) {
         String result = "";
         String work = "";
@@ -215,4 +211,63 @@ public class Solution {
         return result.trim();
     }
 
+    private static void chayThu() {
+        int[] a = { 10, 8, 2, -8, 14 };
+        asteroidCollision(a);
+        System.out.print("----------" + asteroidCollision(a).toString() + "----------  14 -8");
+    }
+
+    public static int[] asteroidCollision(int[] asteroids) {
+        List<Integer> result = new ArrayList<Integer>();
+        for (int num : asteroids) {
+            result.add(num);
+        }
+        int slow = 0;
+        int fast = 1;
+        while (fast < result.size()) {
+            int first = result.get(slow);
+            int second = result.get(fast);
+            if (first > 0 && second < 0) {
+                // Xử lý trường hợp va chạm khi một tiểu hành tinh di chuyển sang phải và một
+                // sang trái
+                if (Math.abs(first) > Math.abs(second)) {
+                    result.remove(fast); // Xóa tiểu hành tinh nhỏ hơn
+                } else if (Math.abs(first) < Math.abs(second)) {
+                    result.remove(slow); // Xóa tiểu hành tinh nhỏ hơn
+                    slow = Math.max(0, slow - 1); // Điều chỉnh chỉ số slow
+                    fast = slow + 1;
+                } else {
+                    // Nếu hai tiểu hành tinh có cùng độ lớn, xóa cả hai
+                    result.remove(fast);
+                    result.remove(slow);
+                    slow = Math.max(0, slow - 1);
+                    fast = slow + 1;
+                }
+            } else {
+                // Không có va chạm, di chuyển tiếp
+                slow++;
+                fast++;
+            }
+        }
+
+        return result.stream().mapToInt(i -> i).toArray();
+    }
+
+    public static String removeStars(String s) {
+        Stack<Character> str = new Stack<Character>();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '*') {
+                str.pop();
+            } else {
+                str.push(s.charAt(i));
+            }
+
+        }
+        while (!str.isEmpty()) {
+            result.append(str.pop());
+        }
+        result.reverse();
+        return result.toString();
+    }
 }
